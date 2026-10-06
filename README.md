@@ -144,3 +144,17 @@ Nuartz stands on the shoulders of [Quartz](https://github.com/jackyzha0/quartz) 
 ## License
 
 MIT
+
+## IPFS markdown (experimental)
+
+`apps/web` can fetch markdown from IPFS and render it with the same `nuartz/markdown` pipeline used for `content/`. This is additive: the `content/` directory, slug routes, search and graph are untouched.
+
+- **Procedure**: `ipfs.markdown` (`apps/web/server/router.ts`) takes `{ cid, path? }`, fetches `ipfs://<cid>[/<path>]` server-side through a cached `@helia/verified-fetch` singleton (`apps/web/server/helia.ts`, Node runtime, 2 MB limit, 30s timeout) and returns `{ cid, path, markdown, contentType }`. `ipfs.render` renders markdown to HTML with `renderMarkdown`.
+- **Hook**: `useIpfsMarkdown(cid, { path, enabled })` in `apps/web/lib/use-ipfs-markdown.ts` (CIDs are immutable, so `staleTime`/`gcTime` are `Infinity`).
+- **Route**: `/ipfs/<cid>[/<path>]`, e.g. `http://localhost:3000/ipfs/<cid>/docs/readme.md`.
+
+```sh
+curl -G 'http://localhost:3000/api/trpc/ipfs.markdown' --data-urlencode 'input={"cid":"<cid>"}'
+```
+
+After pulling this change run `bun install` to install `@helia/verified-fetch` and `multiformats`.

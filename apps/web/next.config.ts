@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
     "@beoe/rehype-code-hook-img",
     "@hpcc-js/wasm",
     "@node-rs/xxhash",
+    "@helia/verified-fetch",
   ],
 }
 
