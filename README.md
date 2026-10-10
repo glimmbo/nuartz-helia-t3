@@ -158,3 +158,7 @@ curl -G 'http://localhost:3000/api/trpc/ipfs.markdown' --data-urlencode 'input={
 ```
 
 After pulling this change run `bun install` to install `@helia/verified-fetch` and `multiformats`.
+
+## Node pairing (experimental)
+
+`/pair` asks for the PeerID of a non-browser node (e.g. Kubo) and then shows a green status dot. For now the PeerID is validated and stored in `localStorage` only; no libp2p connection is made yet. It is fully client-side so it can be statically hosted.

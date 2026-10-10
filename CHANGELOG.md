@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ### Added
+- `/pair` node pairing screen: enter a Kubo PeerID, then see a green paired status.
 - `ipfs.markdown` tRPC procedure, `useIpfsMarkdown` hook and `/ipfs/[cid]` demo route that fetch and render markdown from IPFS via `@helia/verified-fetch`, alongside the existing `content/` directory.
 - Selectable 2D, 3D, VR, and marker-based AR graph views with shared note selection and on-demand spatial assets.
 - Package-level integration guide with a build-time usage example and required Next.js settings.
