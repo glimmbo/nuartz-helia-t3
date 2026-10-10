@@ -144,3 +144,29 @@ Nuartz stands on the shoulders of [Quartz](https://github.com/jackyzha0/quartz) 
 ## License
 
 MIT
+
+## IPFS markdown (experimental)
+
+`apps/web` can fetch markdown from IPFS and render it with the same `nuartz/markdown` pipeline used for `content/`. This is additive: the `content/` directory, slug routes, search and graph are untouched.
+
+- **Procedure**: `ipfs.markdown` (`apps/web/server/router.ts`) takes `{ cid, path? }`, fetches `ipfs://<cid>[/<path>]` server-side through a cached `@helia/verified-fetch` singleton (`apps/web/server/helia.ts`, Node runtime, 2 MB limit, 30s timeout) and returns `{ cid, path, markdown, contentType }`. `ipfs.render` renders markdown to HTML with `renderMarkdown`.
+- **Hook**: `useIpfsMarkdown(cid, { path, enabled })` in `apps/web/lib/use-ipfs-markdown.ts` (CIDs are immutable, so `staleTime`/`gcTime` are `Infinity`).
+- **Route**: `/ipfs/<cid>[/<path>]`, e.g. `http://localhost:3000/ipfs/<cid>/docs/readme.md`.
+
+```sh
+curl -G 'http://localhost:3000/api/trpc/ipfs.markdown' --data-urlencode 'input={"cid":"<cid>"}'
+```
+
+After pulling this change run `bun install` to install `@helia/verified-fetch` and `multiformats`.
+
+## Node pairing (experimental)
+
+`/pair` asks for a browser-dialable multiaddr of a non-browser node (e.g. Kubo) ending in `/p2p/<PeerID>`, then starts an in-browser Helia node and dials it. A dot shows connecting (yellow), paired (green) or disconnected (red, with Retry); the connection is re-checked every 5s. The address is stored in `localStorage`. It is fully client-side so it can be statically hosted.
+
+Browsers cannot open raw TCP/QUIC, so Kubo must expose a WebSocket (or WebTransport/WebRTC-direct) listener, e.g.:
+
+```sh
+ipfs config --json Addresses.Swarm '["/ip4/0.0.0.0/tcp/4001","/ip4/0.0.0.0/tcp/4003/ws"]'
+```
+
+then pair with `/ip4/127.0.0.1/tcp/4003/ws/p2p/<PeerID>` (from `ipfs id`). Pages served over HTTPS need a secure `/tls/ws` or `/wss` address. Run `bun install` for the new `helia` and `@multiformats/multiaddr` dependencies.
