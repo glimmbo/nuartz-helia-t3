@@ -161,4 +161,12 @@ After pulling this change run `bun install` to install `@helia/verified-fetch` a
 
 ## Node pairing (experimental)
 
-`/pair` asks for the PeerID of a non-browser node (e.g. Kubo) and then shows a green status dot. For now the PeerID is validated and stored in `localStorage` only; no libp2p connection is made yet. It is fully client-side so it can be statically hosted.
+`/pair` asks for a browser-dialable multiaddr of a non-browser node (e.g. Kubo) ending in `/p2p/<PeerID>`, then starts an in-browser Helia node and dials it. A dot shows connecting (yellow), paired (green) or disconnected (red, with Retry); the connection is re-checked every 5s. The address is stored in `localStorage`. It is fully client-side so it can be statically hosted.
+
+Browsers cannot open raw TCP/QUIC, so Kubo must expose a WebSocket (or WebTransport/WebRTC-direct) listener, e.g.:
+
+```sh
+ipfs config --json Addresses.Swarm '["/ip4/0.0.0.0/tcp/4001","/ip4/0.0.0.0/tcp/4003/ws"]'
+```
+
+then pair with `/ip4/127.0.0.1/tcp/4003/ws/p2p/<PeerID>` (from `ipfs id`). Pages served over HTTPS need a secure `/tls/ws` or `/wss` address. Run `bun install` for the new `helia` and `@multiformats/multiaddr` dependencies.
