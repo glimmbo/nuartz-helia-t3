@@ -11,3 +11,4 @@ export function Hello() {
   if (hello.isError) return <p>Error: {hello.error.message}</p>
   return <p>{hello.data.greeting}</p>
 }
+  

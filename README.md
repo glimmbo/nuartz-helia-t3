@@ -57,6 +57,10 @@ bun dev
 
 Put your Obsidian markdown files in `apps/web/content/` and open `http://localhost:3000`.
 
+### Dev Container
+
+Open the repository in a VS Code Dev Container to get Bun 1.3.10 and install workspace dependencies automatically. Then run `bun dev` in the container; port 3000 is forwarded to your browser.
+
 ## Deploying
 
 Nuartz supports two deployment modes. Pick the one that fits your needs:
