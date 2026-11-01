@@ -40,11 +40,11 @@ Both modes share the same codebase. You don't need to change your code to switch
 
 ## Quartz vs Nuartz
 
-| | Quartz | Nuartz (package) | Nuartz (starter) |
-|---|--------|--------|--------|
-| Type | SSG (fork & deploy) | npm library | Next.js app (clone & deploy) |
-| UI | Built-in theme | None — bring your own | shadcn/ui included |
-| GitHub Pages | Supported | Supported | Supported (static export) |
-| Customisation | Plugin API | Any React component | Modify components directly |
+|               | Quartz              | Nuartz (package)      | Nuartz (starter)             |
+| ------------- | ------------------- | --------------------- | ---------------------------- |
+| Type          | SSG (fork & deploy) | npm library           | Next.js app (clone & deploy) |
+| UI            | Built-in theme      | None — bring your own | shadcn/ui included           |
+| GitHub Pages  | Supported           | Supported             | Supported (static export)    |
+| Customisation | Plugin API          | Any React component   | Modify components directly   |
 
 Choose Quartz for a quick, opinionated setup. Choose Nuartz when you want full control over your site's UI and behaviour.

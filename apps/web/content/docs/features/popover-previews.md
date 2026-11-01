@@ -14,6 +14,7 @@ The popup disappears when you move your mouse away.
 ## What's shown
 
 The preview card displays:
+
 - **Title** — from frontmatter `title`
 - **Excerpt** — first ~200 characters of the page body
 
@@ -22,10 +23,10 @@ The preview card displays:
 
 ## Implementation
 
-| File | Role |
-|------|------|
+| File                                      | Role                                            |
+| ----------------------------------------- | ----------------------------------------------- |
 | `apps/web/components/popover-preview.tsx` | Client component — attaches mouseover listeners |
-| `apps/web/app/api/preview/route.ts` | Returns `{ title, excerpt }` for a given slug |
+| `apps/web/app/api/preview/route.ts`       | Returns `{ title, excerpt }` for a given slug   |
 
 ## Limitations
 

@@ -1,43 +1,54 @@
-import Link from "next/link"
-import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
+import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 
 interface NoteFile {
-  slug: string
-  title: string
-  description: string | null
-  summary?: string | null
-  date: string | null
-  tags: string[]
+  slug: string;
+  title: string;
+  description: string | null;
+  summary?: string | null;
+  date: string | null;
+  tags: string[];
 }
 
 interface PaginationProps {
-  currentPage: number
-  totalPages: number
-  pageHref?: (page: number) => string
+  currentPage: number;
+  totalPages: number;
+  pageHref?: (page: number) => string;
 }
 
-function Pagination({ currentPage, totalPages, pageHref = page => page === 1 ? "/" : `/page/${page}` }: PaginationProps) {
-  if (totalPages <= 1) return null
+function Pagination({
+  currentPage,
+  totalPages,
+  pageHref = (page) => (page === 1 ? "/" : `/page/${page}`),
+}: PaginationProps) {
+  if (totalPages <= 1) return null;
 
-  const pages: (number | "...")[] = []
+  const pages: (number | "...")[] = [];
 
   // Always show first page
-  pages.push(1)
+  pages.push(1);
 
-  if (currentPage > 3) pages.push("...")
+  if (currentPage > 3) pages.push("...");
 
-  for (let i = Math.max(2, currentPage - 1); i <= Math.min(totalPages - 1, currentPage + 1); i++) {
-    pages.push(i)
+  for (
+    let i = Math.max(2, currentPage - 1);
+    i <= Math.min(totalPages - 1, currentPage + 1);
+    i++
+  ) {
+    pages.push(i);
   }
 
-  if (currentPage < totalPages - 2) pages.push("...")
+  if (currentPage < totalPages - 2) pages.push("...");
 
   // Always show last page
-  if (totalPages > 1) pages.push(totalPages)
+  if (totalPages > 1) pages.push(totalPages);
 
   return (
-    <nav aria-label="Pagination" className="mt-8 flex items-center justify-center gap-1">
+    <nav
+      aria-label="Pagination"
+      className="mt-8 flex items-center justify-center gap-1"
+    >
       {currentPage > 1 && (
         <Link
           href={pageHref(currentPage - 1)}
@@ -48,7 +59,10 @@ function Pagination({ currentPage, totalPages, pageHref = page => page === 1 ? "
       )}
       {pages.map((page, i) =>
         page === "..." ? (
-          <span key={`ellipsis-${i}`} className="px-2 text-sm text-muted-foreground">
+          <span
+            key={`ellipsis-${i}`}
+            className="px-2 text-sm text-muted-foreground"
+          >
             ...
           </span>
         ) : (
@@ -75,7 +89,7 @@ function Pagination({ currentPage, totalPages, pageHref = page => page === 1 ? "
         </Link>
       )}
     </nav>
-  )
+  );
 }
 
 export function NotesList({
@@ -87,19 +101,21 @@ export function NotesList({
   controls,
   pageHref,
 }: {
-  notes: NoteFile[]
-  totalCount: number
-  currentPage: number
-  totalPages: number
-  title?: string
-  controls?: React.ReactNode
-  pageHref?: (page: number) => string
+  notes: NoteFile[];
+  totalCount: number;
+  currentPage: number;
+  totalPages: number;
+  title?: string;
+  controls?: React.ReactNode;
+  pageHref?: (page: number) => string;
 }) {
   return (
     <div className="px-6 py-8 max-w-6xl mx-auto w-full">
       <div className="mb-6">
         <h1 className="text-2xl font-semibold tracking-tight">{title}</h1>
-        <p className="mt-1 text-sm text-muted-foreground">{totalCount} {totalCount === 1 ? "note" : "notes"}</p>
+        <p className="mt-1 text-sm text-muted-foreground">
+          {totalCount} {totalCount === 1 ? "note" : "notes"}
+        </p>
       </div>
       {controls}
 
@@ -107,34 +123,50 @@ export function NotesList({
 
       <div className="space-y-2">
         {notes.map((file) => {
-          const summary = file.summary ?? file.description
+          const summary = file.summary ?? file.description;
 
           return (
-              <article key={file.slug} className="rounded-lg border px-4 py-3 transition-colors hover:bg-muted/30">
-                <div className="flex items-start justify-between gap-4">
-                  <Link href={`/${file.slug}`} className="font-medium hover:underline underline-offset-4">
-                    {file.title}
-                  </Link>
-                  {file.date && (
-                    <span className="shrink-0 text-xs text-muted-foreground tabular-nums">
-                      {file.date}
-                    </span>
-                  )}
-                </div>
-                {summary && (
-                  <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{summary}</p>
+            <article
+              key={file.slug}
+              className="rounded-lg border px-4 py-3 transition-colors hover:bg-muted/30"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <Link
+                  href={`/${file.slug}`}
+                  className="font-medium hover:underline underline-offset-4"
+                >
+                  {file.title}
+                </Link>
+                {file.date && (
+                  <span className="shrink-0 text-xs text-muted-foreground tabular-nums">
+                    {file.date}
+                  </span>
                 )}
-                {file.tags.length > 0 && (
-                  <div className="mt-2 flex flex-wrap gap-1">
-                    {file.tags.map((tag) => (
-                      <Link key={tag} href={`/notes?tag=${encodeURIComponent(tag)}`}><Badge variant="secondary" className="text-xs font-normal hover:bg-accent">
+              </div>
+              {summary && (
+                <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
+                  {summary}
+                </p>
+              )}
+              {file.tags.length > 0 && (
+                <div className="mt-2 flex flex-wrap gap-1">
+                  {file.tags.map((tag) => (
+                    <Link
+                      key={tag}
+                      href={`/notes?tag=${encodeURIComponent(tag)}`}
+                    >
+                      <Badge
+                        variant="secondary"
+                        className="text-xs font-normal hover:bg-accent"
+                      >
                         #{tag}
-                      </Badge></Link>
-                    ))}
-                  </div>
-                )}
-              </article>
-          )
+                      </Badge>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </article>
+          );
         })}
 
         {notes.length === 0 && (
@@ -144,7 +176,11 @@ export function NotesList({
         )}
       </div>
 
-      <Pagination currentPage={currentPage} totalPages={totalPages} pageHref={pageHref} />
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        pageHref={pageHref}
+      />
     </div>
-  )
+  );
 }

@@ -17,12 +17,12 @@ Press `Cmd+K` on macOS or `Ctrl+K` on Windows/Linux to open the search modal. Yo
 
 Once the modal is open:
 
-| Key | Action |
-|-----|--------|
-| `↑` / `↓` | Move between results |
+| Key                 | Action                                  |
+| ------------------- | --------------------------------------- |
+| `↑` / `↓`           | Move between results                    |
 | `Tab` / `Shift+Tab` | Move forward / backward through results |
-| `Enter` | Navigate to the highlighted result |
-| `Esc` | Close search |
+| `Enter`             | Navigate to the highlighted result      |
+| `Esc`               | Close search                            |
 
 ## Searching by tag
 

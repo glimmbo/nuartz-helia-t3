@@ -46,8 +46,8 @@ This is useful for draft files you want to keep in version control but never pub
 ## Implementation
 
 ```ts title="packages/nuartz/src/fs.ts"
-const { data } = matter(raw)
-if (data.draft === true || data.published === false) continue
+const { data } = matter(raw);
+if (data.draft === true || data.published === false) continue;
 ```
 
 ## Source

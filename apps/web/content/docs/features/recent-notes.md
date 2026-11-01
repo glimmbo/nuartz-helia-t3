@@ -6,8 +6,8 @@ description: Display a list of recently created or updated notes.
 The home page (`/`) can show either your `index.md` content or a list of recent notes. This is controlled by `homePage` in `nuartz.config.ts`:
 
 ```typescript
-homePage: "recent"   // show recent notes list (this page)
-homePage: "index"    // show content/index.md instead (default)
+homePage: "recent"; // show recent notes list (this page)
+homePage: "index"; // show content/index.md instead (default)
 ```
 
 When `homePage: "recent"`, Nuartz shows a list of all notes sorted by `date` in frontmatter (most recent first).
@@ -40,5 +40,5 @@ To change how the home page listing looks, edit `apps/web/app/page.tsx` directly
 const notes = files
   .filter((f) => f.slug !== "index")
   .sort(/* by date */)
-  .slice(0, 10)  // limit to 10
+  .slice(0, 10); // limit to 10
 ```

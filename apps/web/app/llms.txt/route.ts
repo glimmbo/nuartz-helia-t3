@@ -1,10 +1,10 @@
-import config from "@/nuartz.config"
-import notesList from "@/.generated/notes-list.json"
+import config from "@/nuartz.config";
+import notesList from "@/.generated/notes-list.json";
 
-export const dynamic = "force-static"
+export const dynamic = "force-static";
 
 export async function GET() {
-  const published = notesList.filter((f) => !f.draft)
+  const published = notesList.filter((f) => !f.draft);
 
   const lines: string[] = [
     `# ${config.site.title}`,
@@ -15,14 +15,16 @@ export async function GET() {
     "",
     "## Notes",
     "",
-  ]
+  ];
 
   for (const file of published) {
-    const url = `${config.site.baseUrl}/${file.slug}`
-    lines.push(`- [${file.title}](${url})${file.description ? `: ${file.description}` : ""}`)
+    const url = `${config.site.baseUrl}/${file.slug}`;
+    lines.push(
+      `- [${file.title}](${url})${file.description ? `: ${file.description}` : ""}`,
+    );
   }
 
   return new Response(lines.join("\n"), {
     headers: { "Content-Type": "text/plain; charset=utf-8" },
-  })
+  });
 }

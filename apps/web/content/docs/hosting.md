@@ -8,16 +8,16 @@ Nuartz can be deployed in two ways: as a **static site** (GitHub Pages) or with 
 
 ## Which mode should I use?
 
-| Feature | Static (GitHub Pages) | Server (Vercel) |
-|---------|:---:|:---:|
-| Pages, search, graph view | O | O |
-| Popover previews (internal links) | O | O |
-| Dark mode, tags, backlinks, TOC | O | O |
-| RSS feed, sitemap | O | O |
-| Dynamic OG images (per-page social cards) | X | O |
-| External link previews | X | O |
-| Next.js image optimization | X | O |
-| Cost | Free | Free tier |
+| Feature                                   | Static (GitHub Pages) | Server (Vercel) |
+| ----------------------------------------- | :-------------------: | :-------------: |
+| Pages, search, graph view                 |           O           |        O        |
+| Popover previews (internal links)         |           O           |        O        |
+| Dark mode, tags, backlinks, TOC           |           O           |        O        |
+| RSS feed, sitemap                         |           O           |        O        |
+| Dynamic OG images (per-page social cards) |           X           |        O        |
+| External link previews                    |           X           |        O        |
+| Next.js image optimization                |           X           |        O        |
+| Cost                                      |         Free          |    Free tier    |
 
 **Short version:** if you just want to publish your notes for free, GitHub Pages works great. If you want social preview cards or external link previews, use Vercel.
 
@@ -30,6 +30,7 @@ GitHub Pages serves static files for free. Nuartz supports this by building all 
 ### How it works
 
 When you enable static export, Nuartz:
+
 1. **Pre-generates `graph.json`** - the same graph data that normally comes from `/api/graph`, saved as a static file
 2. **Pre-generates `preview-index.json`** - preview data for internal link popups, no API needed
 3. **Copies media files** from `content/` to `public/content/` so images work without a server
@@ -60,6 +61,7 @@ Or you can leave it as-is and trigger deployments manually from the **Actions** 
 #### 3. Push to main
 
 The workflow will:
+
 1. Automatically enable `output: "export"` in `next.config.ts`
 2. Run the prebuild script (generate static graph/preview data, copy media files)
 3. Build all pages as static HTML
@@ -72,6 +74,7 @@ That's it. Your site will be live at `https://<username>.github.io/<repo-name>/`
 
 > [!tip] Local testing
 > You can test the static build locally:
+>
 > ```bash
 > bun run apps/web/scripts/prebuild-static.ts
 > bun run build
@@ -92,13 +95,13 @@ Go to [vercel.com/new](https://vercel.com/new), click **Import Git Repository**,
 
 Nuartz is a **monorepo** - the Next.js app lives in `apps/web`, not the root. Override the defaults:
 
-| Setting | Value |
-|---------|-------|
-| **Root Directory** | `apps/web` |
-| **Framework Preset** | Next.js (auto-detected) |
-| **Install Command** | `cd ../.. && bun install --frozen-lockfile` |
-| **Build Command** | `cd ../.. && bun run build:pkg && cd apps/web && next build` |
-| **Output Directory** | `.next` (default) |
+| Setting              | Value                                                        |
+| -------------------- | ------------------------------------------------------------ |
+| **Root Directory**   | `apps/web`                                                   |
+| **Framework Preset** | Next.js (auto-detected)                                      |
+| **Install Command**  | `cd ../.. && bun install --frozen-lockfile`                  |
+| **Build Command**    | `cd ../.. && bun run build:pkg && cd apps/web && next build` |
+| **Output Directory** | `.next` (default)                                            |
 
 > [!tip]
 > The install and build commands run from `apps/web` by default. The overrides above `cd ../..` back to the monorepo root so Bun can resolve the `nuartz` workspace package.

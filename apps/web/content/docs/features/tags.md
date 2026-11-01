@@ -38,10 +38,10 @@ This note is about #search and #navigation features.
 
 nuartz generates two kinds of tag pages automatically:
 
-| URL | Contents |
-|-----|----------|
-| `/tags` | Global index listing every tag and its note count |
-| `/tags/[tag]` | All notes that have the given tag |
+| URL           | Contents                                          |
+| ------------- | ------------------------------------------------- |
+| `/tags`       | Global index listing every tag and its note count |
+| `/tags/[tag]` | All notes that have the given tag                 |
 
 You can link to a tag page with a wikilink:
 

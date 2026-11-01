@@ -42,11 +42,11 @@ HTML string + metadata (links, tags, toc)
 All plugins are wired together in `packages/nuartz/src/markdown.ts` via the `renderMarkdown()` function:
 
 ```ts
-import { renderMarkdown } from "nuartz/markdown"
+import { renderMarkdown } from "nuartz/markdown";
 
 const result = await renderMarkdown(rawMarkdownString, {
-  knownSlugs: new Set(allSlugs),  // optional: enables broken-link detection
-})
+  knownSlugs: new Set(allSlugs), // optional: enables broken-link detection
+});
 // result.html      - rendered HTML
 // result.toc       - table of contents entries
 // result.links     - outgoing wikilinks
@@ -55,15 +55,15 @@ const result = await renderMarkdown(rawMarkdownString, {
 
 ## Plugin Reference
 
-| Plugin | Docs |
-|--------|------|
-| Wikilinks & Obsidian syntax | [[plugins/obsidian]] |
-| Syntax highlighting | [[plugins/syntax-highlighting]] |
-| Table of contents | [[plugins/table-of-contents]] |
-| Frontmatter | [[plugins/frontmatter]] |
-| LaTeX | [[features/latex]] |
-| Mermaid diagrams | [[features/mermaid]] |
-| Callouts | [[features/callouts]] |
+| Plugin                      | Docs                            |
+| --------------------------- | ------------------------------- |
+| Wikilinks & Obsidian syntax | [[plugins/obsidian]]            |
+| Syntax highlighting         | [[plugins/syntax-highlighting]] |
+| Table of contents           | [[plugins/table-of-contents]]   |
+| Frontmatter                 | [[plugins/frontmatter]]         |
+| LaTeX                       | [[features/latex]]              |
+| Mermaid diagrams            | [[features/mermaid]]            |
+| Callouts                    | [[features/callouts]]           |
 
 ## Creating Custom Plugins
 

@@ -1,8 +1,8 @@
-import Link from "next/link"
-import { ChevronRight, Home } from "lucide-react"
+import Link from "next/link";
+import { ChevronRight, Home } from "lucide-react";
 
 interface BreadcrumbProps {
-  slug: string[]
+  slug: string[];
 }
 
 export function Breadcrumb({ slug }: BreadcrumbProps) {
@@ -10,7 +10,7 @@ export function Breadcrumb({ slug }: BreadcrumbProps) {
     label: part.replace(/-/g, " "),
     href: "/" + slug.slice(0, i + 1).join("/"),
     isLast: i === slug.length - 1,
-  }))
+  }));
 
   return (
     <nav className="flex items-center gap-1 text-sm text-muted-foreground">
@@ -23,12 +23,15 @@ export function Breadcrumb({ slug }: BreadcrumbProps) {
           {crumb.isLast ? (
             <span className="text-foreground">{crumb.label}</span>
           ) : (
-            <Link href={crumb.href} className="hover:text-foreground transition-colors capitalize">
+            <Link
+              href={crumb.href}
+              className="hover:text-foreground transition-colors capitalize"
+            >
               {crumb.label}
             </Link>
           )}
         </span>
       ))}
     </nav>
-  )
+  );
 }

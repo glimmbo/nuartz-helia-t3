@@ -7,8 +7,8 @@ Want to see what nuartz can do? Here are some sites using it:
 
 ## Sites built with nuartz
 
-| Site | Description |
-|------|-------------|
+| Site                                                             | Description                      |
+| ---------------------------------------------------------------- | -------------------------------- |
 | [syshin0116.vercel.app/blog](https://syshin0116.vercel.app/blog) | Personal blog and digital garden |
 
 ## Submit your site

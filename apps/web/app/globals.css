@@ -50,15 +50,23 @@
     animation: target-highlight 1.5s ease;
   }
   @keyframes target-highlight {
-    0% { background-color: oklch(0.92 0.05 250 / 0.5); }
-    100% { background-color: transparent; }
+    0% {
+      background-color: oklch(0.92 0.05 250 / 0.5);
+    }
+    100% {
+      background-color: transparent;
+    }
   }
   .dark :target {
     animation: target-highlight-dark 1.5s ease;
   }
   @keyframes target-highlight-dark {
-    0% { background-color: oklch(0.3 0.05 250 / 0.4); }
-    100% { background-color: transparent; }
+    0% {
+      background-color: oklch(0.3 0.05 250 / 0.4);
+    }
+    100% {
+      background-color: transparent;
+    }
   }
 
   /* Focus-visible ring for keyboard navigation */
@@ -70,8 +78,17 @@
 
   /* Print: hide navigation, show content only */
   @media print {
-    header, aside, nav, .copy-code-btn, .code-lang-label { display: none !important; }
-    main { margin: 0 !important; max-width: 100% !important; }
+    header,
+    aside,
+    nav,
+    .copy-code-btn,
+    .code-lang-label {
+      display: none !important;
+    }
+    main {
+      margin: 0 !important;
+      max-width: 100% !important;
+    }
   }
 }
 
@@ -198,12 +215,25 @@ mark {
 
 /* Scroll mask - fade-out at top/bottom edges */
 .scroll-mask {
-  mask-image: linear-gradient(to bottom, transparent, black 2rem, black calc(100% - 2rem), transparent);
-  -webkit-mask-image: linear-gradient(to bottom, transparent, black 2rem, black calc(100% - 2rem), transparent);
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 2rem,
+    black calc(100% - 2rem),
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 2rem,
+    black calc(100% - 2rem),
+    transparent
+  );
 }
 
 /* Reader mode */
-html.reader-mode aside, html.reader-mode .reading-toc {
+html.reader-mode aside,
+html.reader-mode .reading-toc {
   display: none !important;
 }
 html.reader-mode main > div {
@@ -261,7 +291,10 @@ html.reader-mode main > div {
   background-color: color-mix(in srgb, var(--muted) 50%, transparent);
   cursor: pointer;
   opacity: 0;
-  transition: opacity 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
 }
 .copy-code-btn:hover {
   color: var(--foreground);
@@ -273,7 +306,9 @@ html.reader-mode main > div {
 }
 /* Mobile: always show copy button */
 @media (hover: none) {
-  .copy-code-btn { opacity: 0.7; }
+  .copy-code-btn {
+    opacity: 0.7;
+  }
 }
 
 /* Wrapper for plain <pre> blocks (no language) */
@@ -494,7 +529,12 @@ a.tag {
   @apply text-foreground;
   line-height: 1.7;
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply tracking-tight text-foreground scroll-mt-20;
     font-weight: 600;
     a.heading-anchor {
@@ -504,12 +544,21 @@ a.tag {
       color: color-mix(in srgb, var(--muted-foreground) 45%, transparent);
       text-decoration: none !important;
       opacity: 0;
-      transition: opacity 0.15s, color 0.15s;
+      transition:
+        opacity 0.15s,
+        color 0.15s;
       cursor: pointer;
-      svg { width: 0.8em; height: 0.8em; }
+      svg {
+        width: 0.8em;
+        height: 0.8em;
+      }
     }
-    &:hover a.heading-anchor { opacity: 1; }
-    a.heading-anchor:hover { color: var(--foreground); }
+    &:hover a.heading-anchor {
+      opacity: 1;
+    }
+    a.heading-anchor:hover {
+      color: var(--foreground);
+    }
   }
 
   h1 {
@@ -528,16 +577,26 @@ a.tag {
     margin-top: 1.62rem;
     margin-bottom: 1rem;
   }
-  h4, h5, h6 {
+  h4,
+  h5,
+  h6 {
     font-size: 1rem;
     margin-top: 1.5rem;
     margin-bottom: 1rem;
   }
 
-  p    { @apply my-4; }
-  ul   { @apply my-4 ml-6 list-disc space-y-1; }
-  ol   { @apply my-4 ml-6 list-decimal space-y-1; }
-  li   { line-height: 1.7; }
+  p {
+    @apply my-4;
+  }
+  ul {
+    @apply my-4 ml-6 list-disc space-y-1;
+  }
+  ol {
+    @apply my-4 ml-6 list-decimal space-y-1;
+  }
+  li {
+    line-height: 1.7;
+  }
 
   a {
     @apply text-foreground underline underline-offset-2 decoration-foreground/30
@@ -560,7 +619,9 @@ a.tag {
     @apply my-4 overflow-x-auto rounded-lg p-4;
     border-width: 1px;
     background: var(--muted);
-    code { @apply bg-transparent p-0 text-sm; }
+    code {
+      @apply bg-transparent p-0 text-sm;
+    }
   }
 
   table {
@@ -581,8 +642,12 @@ a.tag {
     tr {
       border-bottom-width: 1px;
       transition: background-color 0.15s;
-      &:last-child { border-bottom-width: 0; }
-      &:hover { background-color: var(--muted); }
+      &:last-child {
+        border-bottom-width: 0;
+      }
+      &:hover {
+        background-color: var(--muted);
+      }
     }
   }
 
@@ -605,7 +670,9 @@ a.tag {
     text-align: center;
   }
 
-  input[type="checkbox"] { @apply mr-2 accent-foreground; }
+  input[type="checkbox"] {
+    @apply mr-2 accent-foreground;
+  }
 
   .footnotes {
     margin-top: 2rem;
@@ -633,68 +700,249 @@ a.tag {
     stroke: currentColor;
   }
 }
-.reading-column { max-width: 72ch; margin-inline: auto; }
-.prose > :first-child { margin-top: 0; }
-.prose table { display: block; overflow-x: auto; }
-.prose { overflow-wrap: anywhere; }
-.copy-code-btn:focus-visible, .prose .heading-anchor:focus-visible { opacity: 1; }
+.reading-column {
+  max-width: 72ch;
+  margin-inline: auto;
+}
+.prose > :first-child {
+  margin-top: 0;
+}
+.prose table {
+  display: block;
+  overflow-x: auto;
+}
+.prose {
+  overflow-wrap: anywhere;
+}
+.copy-code-btn:focus-visible,
+.prose .heading-anchor:focus-visible {
+  opacity: 1;
+}
 
 .graph-surface {
   --graph-accent: oklch(0.53 0.105 185);
-  --graph-tag: oklch(0.59 0.10 70);
-  background: radial-gradient(circle, color-mix(in srgb, var(--muted-foreground) 18%, transparent) 0.7px, transparent 0.8px) 8px 8px / 16px 16px, color-mix(in srgb, var(--muted) 35%, var(--background));
+  --graph-tag: oklch(0.59 0.1 70);
+  background:
+    radial-gradient(
+        circle,
+        color-mix(in srgb, var(--muted-foreground) 18%, transparent) 0.7px,
+        transparent 0.8px
+      )
+      8px 8px / 16px 16px,
+    color-mix(in srgb, var(--muted) 35%, var(--background));
 }
-.dark .graph-surface { --graph-accent: oklch(0.78 0.10 185); --graph-tag: oklch(0.78 0.10 70); }
-.graph-canvas { touch-action: none; cursor: grab; }
-.graph-canvas:active { cursor: grabbing; }
-.graph-edge { stroke: var(--muted-foreground); opacity: 0.16; }
-.graph-edge[data-active="true"] { stroke: var(--graph-accent); opacity: 0.6; stroke-width: 1.5; }
-.graph-canvas [data-node] { cursor: pointer; fill: var(--muted-foreground); transition: opacity 150ms; }
-.graph-canvas [data-kind="tag"] { fill: var(--graph-tag); }
-.graph-canvas [data-dimmed="true"] { opacity: 0.4; }
-.graph-canvas [data-current="true"], .graph-canvas [data-selected="true"] { fill: var(--graph-accent); opacity: 1; }
-.graph-hit { fill: transparent; pointer-events: all; }
-.graph-canvas [data-selected="true"] .graph-mark > :is(circle, rect):not(.graph-hit), .graph-canvas [data-node]:focus-visible .graph-mark > :is(circle, rect):not(.graph-hit) {
-  stroke: var(--graph-accent); stroke-width: 5; stroke-opacity: 0.25; paint-order: stroke;
+.dark .graph-surface {
+  --graph-accent: oklch(0.78 0.1 185);
+  --graph-tag: oklch(0.78 0.1 70);
 }
-.graph-label { fill: var(--foreground); stroke: var(--background); stroke-linejoin: round; paint-order: stroke; opacity: 0; pointer-events: none; }
+.graph-canvas {
+  touch-action: none;
+  cursor: grab;
+}
+.graph-canvas:active {
+  cursor: grabbing;
+}
+.graph-edge {
+  stroke: var(--muted-foreground);
+  opacity: 0.16;
+}
+.graph-edge[data-active="true"] {
+  stroke: var(--graph-accent);
+  opacity: 0.6;
+  stroke-width: 1.5;
+}
+.graph-canvas [data-node] {
+  cursor: pointer;
+  fill: var(--muted-foreground);
+  transition: opacity 150ms;
+}
+.graph-canvas [data-kind="tag"] {
+  fill: var(--graph-tag);
+}
+.graph-canvas [data-dimmed="true"] {
+  opacity: 0.4;
+}
+.graph-canvas [data-current="true"],
+.graph-canvas [data-selected="true"] {
+  fill: var(--graph-accent);
+  opacity: 1;
+}
+.graph-hit {
+  fill: transparent;
+  pointer-events: all;
+}
+.graph-canvas
+  [data-selected="true"]
+  .graph-mark
+  > :is(circle, rect):not(.graph-hit),
+.graph-canvas
+  [data-node]:focus-visible
+  .graph-mark
+  > :is(circle, rect):not(.graph-hit) {
+  stroke: var(--graph-accent);
+  stroke-width: 5;
+  stroke-opacity: 0.25;
+  paint-order: stroke;
+}
+.graph-label {
+  fill: var(--foreground);
+  stroke: var(--background);
+  stroke-linejoin: round;
+  paint-order: stroke;
+  opacity: 0;
+  pointer-events: none;
+}
 .graph-canvas [data-node]:hover .graph-label,
 .graph-canvas [data-node]:focus-visible .graph-label,
-.graph-canvas [data-labelled="true"]:not([data-dimmed="true"]) .graph-label { opacity: 1; }
-.graph-canvas [data-node]:hover, .graph-canvas [data-node]:focus-visible { opacity: 1; }
-
-.prose .embed-note { margin-block: 1.5rem; padding: 1rem 1.25rem; border: 1px solid var(--border); border-left: 3px solid var(--ring); border-radius: 0.5rem; }
-.prose .embed-source { display: block; margin-bottom: 1rem; font-size: 0.8rem; color: var(--muted-foreground); }
-.prose .home-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.75rem 0 2.5rem; }
-.prose .home-actions a { padding: 0.65rem 1rem; border: 1px solid var(--border); border-radius: 0.5rem; text-decoration: none; font-size: 0.875rem; font-weight: 500; }
-.prose .home-actions a:first-child { color: var(--background); background: var(--foreground); border-color: var(--foreground); }
-.prose .home-actions a:hover { opacity: 0.8; }
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+.graph-canvas [data-labelled="true"]:not([data-dimmed="true"]) .graph-label {
+  opacity: 1;
+}
+.graph-canvas [data-node]:hover,
+.graph-canvas [data-node]:focus-visible {
+  opacity: 1;
 }
 
-.graph-mark { transform: scale(var(--graph-inverse-scale, 1)); }
+.prose .embed-note {
+  margin-block: 1.5rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--ring);
+  border-radius: 0.5rem;
+}
+.prose .embed-source {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+}
+.prose .home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.75rem 0 2.5rem;
+}
+.prose .home-actions a {
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.prose .home-actions a:first-child {
+  color: var(--background);
+  background: var(--foreground);
+  border-color: var(--foreground);
+}
+.prose .home-actions a:hover {
+  opacity: 0.8;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 
-.graph-dense .graph-edge { opacity: 0.025; }
-.graph-dense .graph-edge[data-active="true"] { opacity: 0.7; }
-.graph-dense [data-dimmed="true"] { opacity: 0.18; }
-.graph-dense .graph-mark > circle:not(.graph-hit) { r: 1.5px; }
-.graph-dense [data-dimmed="false"] .graph-mark > circle:not(.graph-hit) { r: 3px; }
+.graph-mark {
+  transform: scale(var(--graph-inverse-scale, 1));
+}
+
+.graph-dense .graph-edge {
+  opacity: 0.025;
+}
+.graph-dense .graph-edge[data-active="true"] {
+  opacity: 0.7;
+}
+.graph-dense [data-dimmed="true"] {
+  opacity: 0.18;
+}
+.graph-dense .graph-mark > circle:not(.graph-hit) {
+  r: 1.5px;
+}
+.graph-dense [data-dimmed="false"] .graph-mark > circle:not(.graph-hit) {
+  r: 3px;
+}
 .graph-dense [data-current="true"] .graph-mark > circle:not(.graph-hit),
-.graph-dense [data-selected="true"] .graph-mark > circle:not(.graph-hit) { r: 6px; }
+.graph-dense [data-selected="true"] .graph-mark > circle:not(.graph-hit) {
+  r: 6px;
+}
 
 @media (prefers-reduced-motion: no-preference) {
-  .graph-surface[data-status="ready"] > .graph-canvas:not(.graph-dense) { animation: graph-reveal 320ms ease-out; }
-  .graph-selection { animation: graph-selection-in 200ms ease-out; }
-  .graph-canvas:not(.graph-dense) .graph-edge { transition: opacity 180ms, stroke 180ms; }
-  .graph-canvas:not(.graph-dense) .graph-label { transition: opacity 140ms; }
-  .graph-canvas:not(.graph-dense) [data-selected="true"] .graph-mark > :is(circle, rect):not(.graph-hit) { animation: graph-select 360ms ease-out; }
-  .graph-dialog button, .graph-dialog a, .graph-surface button { transition: background-color 150ms, color 150ms, transform 150ms; }
-  .graph-dialog button:active, .graph-dialog a:active, .graph-surface button:active { transform: scale(0.97); }
-  .graph-dialog button > svg:last-child, .graph-dialog a > svg { transition: transform 150ms, opacity 150ms; }
-  .graph-dialog button:hover > svg:last-child, .graph-dialog a:hover > svg { transform: translateX(2px); }
+  .graph-surface[data-status="ready"] > .graph-canvas:not(.graph-dense) {
+    animation: graph-reveal 320ms ease-out;
+  }
+  .graph-selection {
+    animation: graph-selection-in 200ms ease-out;
+  }
+  .graph-canvas:not(.graph-dense) .graph-edge {
+    transition:
+      opacity 180ms,
+      stroke 180ms;
+  }
+  .graph-canvas:not(.graph-dense) .graph-label {
+    transition: opacity 140ms;
+  }
+  .graph-canvas:not(.graph-dense)
+    [data-selected="true"]
+    .graph-mark
+    > :is(circle, rect):not(.graph-hit) {
+    animation: graph-select 360ms ease-out;
+  }
+  .graph-dialog button,
+  .graph-dialog a,
+  .graph-surface button {
+    transition:
+      background-color 150ms,
+      color 150ms,
+      transform 150ms;
+  }
+  .graph-dialog button:active,
+  .graph-dialog a:active,
+  .graph-surface button:active {
+    transform: scale(0.97);
+  }
+  .graph-dialog button > svg:last-child,
+  .graph-dialog a > svg {
+    transition:
+      transform 150ms,
+      opacity 150ms;
+  }
+  .graph-dialog button:hover > svg:last-child,
+  .graph-dialog a:hover > svg {
+    transform: translateX(2px);
+  }
 }
-@keyframes graph-reveal { from { opacity: 0; } to { opacity: 1; } }
-@keyframes graph-selection-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes graph-select { from { stroke-width: 12; stroke-opacity: 0; } to { stroke-width: 5; stroke-opacity: 0.25; } }
+@keyframes graph-reveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes graph-selection-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes graph-select {
+  from {
+    stroke-width: 12;
+    stroke-opacity: 0;
+  }
+  to {
+    stroke-width: 5;
+    stroke-opacity: 0.25;
+  }
+}

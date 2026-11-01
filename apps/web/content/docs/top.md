@@ -53,13 +53,13 @@ Every UI component is built with shadcn/ui. Grab any component from [ui.shadcn.c
 
 Heavily inspired by [Quartz](https://github.com/jackyzha0/quartz). Nuartz borrows many of Quartz's ideas - Obsidian parsing, graph visualization, overall UX - and reimplements them on top of the Next.js + React ecosystem.
 
-|  | Nuartz | Static generators |
-|--|--------|-------------------|
-| **Framework** | Next.js 16 (App Router) | Custom templating |
-| **UI** | shadcn/ui + Tailwind v4 | Built-in themes |
-| **Obsidian syntax** | Full (wikilinks, callouts, tags, graph) | Partial / plugin-dependent |
-| **Customization** | Any React component | Plugin API / theme overrides |
-| **Hosting** | GitHub Pages, Vercel, Netlify, Docker | GitHub Pages, Netlify |
+|                     | Nuartz                                  | Static generators            |
+| ------------------- | --------------------------------------- | ---------------------------- |
+| **Framework**       | Next.js 16 (App Router)                 | Custom templating            |
+| **UI**              | shadcn/ui + Tailwind v4                 | Built-in themes              |
+| **Obsidian syntax** | Full (wikilinks, callouts, tags, graph) | Partial / plugin-dependent   |
+| **Customization**   | Any React component                     | Plugin API / theme overrides |
+| **Hosting**         | GitHub Pages, Vercel, Netlify, Docker   | GitHub Pages, Netlify        |
 
 ## Documentation
 

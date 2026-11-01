@@ -11,6 +11,7 @@ description: Deploy your nuartz garden to Vercel in a few steps.
 nuartz is a Next.js application that supports both static export (GitHub Pages) and server-side deployment (Vercel, Netlify). See the [[docs/hosting|full hosting guide]] for all options including GitHub Pages.
 
 > [!info] Prerequisites
+>
 > - Your nuartz project is pushed to a GitHub repository.
 > - The `content/` directory is committed to the repo (not gitignored).
 
@@ -37,8 +38,8 @@ git push
 
 In the **Environment Variables** section before deploying, add:
 
-| Name | Value |
-|------|-------|
+| Name                   | Value                            |
+| ---------------------- | -------------------------------- |
 | `NEXT_PUBLIC_SITE_URL` | `https://your-domain.vercel.app` |
 
 Update this to your custom domain once you have one.

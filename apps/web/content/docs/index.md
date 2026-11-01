@@ -41,9 +41,9 @@ For a full list, visit the [[features/index|features page]].
 
 Nuartz is split into two packages:
 
-| Package | Description |
-|---------|-------------|
+| Package           | Description                                                                  |
+| ----------------- | ---------------------------------------------------------------------------- |
 | `packages/nuartz` | Headless data library - markdown parsing, wikilinks, backlinks, search index |
-| `apps/web` | Next.js 16 starter template with shadcn/ui |
+| `apps/web`        | Next.js 16 starter template with shadcn/ui                                   |
 
 Read more on the [[advanced/architecture|architecture]] page or explore [[advanced/creating-plugins|creating plugins]].

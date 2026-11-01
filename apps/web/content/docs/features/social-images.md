@@ -9,10 +9,10 @@ Nuartz generates Open Graph (OG) images for each page, providing rich link previ
 
 Two routes generate OG images:
 
-| Route | Used for |
-|-------|---------|
-| `app/opengraph-image.tsx` | Root `/` OG image |
-| `app/og/route.tsx` | Per-page OG images (Edge runtime) |
+| Route                     | Used for                          |
+| ------------------------- | --------------------------------- |
+| `app/opengraph-image.tsx` | Root `/` OG image                 |
+| `app/og/route.tsx`        | Per-page OG images (Edge runtime) |
 
 The per-page image is referenced in `<meta>` tags generated in `app/[...slug]/page.tsx`:
 

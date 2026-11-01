@@ -13,13 +13,16 @@ See [[features/syntax-highlighting]] for usage examples.
 The current theme is set in `packages/nuartz/src/markdown.ts`:
 
 ```ts
-[rehypePrettyCode, {
-  theme: {
-    light: "github-light",
-    dark: "github-dark",
+[
+  rehypePrettyCode,
+  {
+    theme: {
+      light: "github-light",
+      dark: "github-dark",
+    },
+    keepBackground: false,
   },
-  keepBackground: false,
-}]
+];
 ```
 
 You can replace `"github-light"` / `"github-dark"` with any [Shiki bundled theme](https://shiki.style/themes). Setting `keepBackground: true` uses the theme's own background colour instead of your site's `--background` variable.
@@ -30,12 +33,12 @@ Annotate specific lines in fenced code blocks:
 
 ````markdown
 ```ts {2,4-6}
-const a = 1    // plain
-const b = 2    // highlighted
-const c = 3    // plain
-const d = 4    // highlighted
-const e = 5    // highlighted
-const f = 6    // highlighted
+const a = 1; // plain
+const b = 2; // highlighted
+const c = 3; // plain
+const d = 4; // highlighted
+const e = 5; // highlighted
+const f = 6; // highlighted
 ```
 ````
 
@@ -45,8 +48,8 @@ Add `showLineNumbers` to enable line numbers:
 
 ````markdown
 ```ts showLineNumbers
-const x = 1
-const y = 2
+const x = 1;
+const y = 2;
 ```
 ````
 
@@ -56,7 +59,7 @@ Add a `title` attribute to label the code block:
 
 ````markdown
 ```ts title="src/index.ts"
-export default {}
+export default {};
 ```
 ````
 

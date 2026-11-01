@@ -11,7 +11,7 @@ nuartz automatically generates a table of contents (TOC) from heading levels in 
 During rendering, a custom `rehypeExtractToc` plugin (defined inline in `packages/nuartz/src/markdown.ts`) extracts all headings with their depth and anchor IDs. The result is returned in `result.toc` from `renderMarkdown()`:
 
 ```ts
-const result = await renderMarkdown(raw)
+const result = await renderMarkdown(raw);
 // result.toc → [{ depth: 1, text: "Introduction", slug: "introduction" }, ...]
 ```
 
