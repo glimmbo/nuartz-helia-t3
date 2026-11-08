@@ -16,6 +16,8 @@ apps/web/public/preview-index.json
 apps/web/public/content/
 apps/web/public/pagefind/
 
+apps/web/server/datastore
+
 .claude/
 .superset/
 .obsidian/

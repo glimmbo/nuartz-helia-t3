@@ -1,40 +1,59 @@
+// lib/helia.ts
 import { createHelia } from "helia";
-import { randomUUIDv7 } from "crypto";
-import QRCode from "qrcode";
+import type { HeliaWithLibp2p } from "@helia/libp2p";
+import { loadOrCreateSelfKey } from "@libp2p/config";
+import { PeerId } from "@libp2p/interface";
+import { FsBlockstore } from "blockstore-fs";
+import { FsDatastore } from "datastore-fs";
+import qrcode from "qrcode";
+import { Key } from "interface-datastore";
 
-export async function init() {
-  const heliaNode = createHelia();
-  await heliaNode.start();
+// Ensure global type safety for TypeScript
+interface CustomNodeJSGlobal {
+  helia?: HeliaWithLibp2p;
+}
 
-  // I want to generate a token appended to a url
-  // that is displayed as a qr in the terminal
+declare const globalThis: CustomNodeJSGlobal;
 
-  const token = randomUUIDv7();
-  const peerId = heliaNode.libp2p.peerId;
+let heliaInstance: HeliaWithLibp2p;
 
-  // clog
-  console.log(`\n\n`);
-  console.dir(
-    { ...heliaNode.info, peerId: peerId.toString(), token },
-    { depth: 10 },
-  );
-  console.log(`\n\n`);
+export async function getHelia(): Promise<HeliaWithLibp2p> {
+  // Reuse existing instance in development or production if it exists
+  if (globalThis.helia) {
+    return globalThis.helia;
+  }
 
-  const searchParams = new URLSearchParams({
-    token,
-    peerId: peerId.toString(),
-  });
+  // If no instance exists, create a new one
+  if (!heliaInstance) {
+    const blockstore = new FsBlockstore("./server/blockstore");
+    const datastore = new FsDatastore("./server/datastore");
 
-  const url = new URL(`localhost:3000/${peerId.toString()}/register-director`);
+    const privateKey = await loadOrCreateSelfKey(datastore);
 
-  url.search = searchParams.toString();
+    const helia = createHelia({
+      // WIP: connection, encryption, listen addrs, pubsub
+      blockstore,
+      datastore,
+      libp2p: {
+        privateKey,
+      },
+    });
 
-  const qrURL = await QRCode.toString(url.toString(), {
-    type: "terminal",
-    small: true,
-  });
+    await helia.start();
 
-  console.log(qrURL);
+    await helia.datastore.put(new Key("test"), Buffer.from("storage"));
 
-  return heliaNode;
+    heliaInstance = helia;
+
+    // Save to globalThis in development to persist across Hot Module Replacements (HMR)
+    if (process.env.NODE_ENV !== "production") {
+      globalThis.helia = heliaInstance;
+    }
+  }
+
+  return heliaInstance;
+}
+
+export async function generatePairingQR(peerId: PeerId) {
+  return qrcode.toString(peerId.toString(), { type: "terminal", small: true });
 }

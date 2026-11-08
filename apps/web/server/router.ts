@@ -1,8 +1,15 @@
 import { z } from "zod";
 import { publicProcedure, router } from "./trpc";
-import { init } from "./helia-node";
+import { getHelia } from "./helia-node";
+import { Key } from "interface-datastore";
 
-const heliaNode = await init();
+const anotherRouter = router({
+  stuff: publicProcedure.input(z.string()).query(({ input }) => {
+    const message = `Hello ${input}`;
+
+    return message;
+  }),
+});
 
 export const appRouter = router({
   hello: publicProcedure
@@ -10,18 +17,26 @@ export const appRouter = router({
     .query(({ input }) => ({
       greeting: input?.name ? `Hello ${input.name}` : "Hello world",
     })),
+
   helloHelia: publicProcedure.query(async () => {
-    await heliaNode.start();
-    return { status: heliaNode.status, info: heliaNode.info };
+    const heliaNode = await getHelia();
+    const key = (await heliaNode.datastore.get(new Key("test"))).toString();
+    return { status: heliaNode.status, info: heliaNode.info, key };
   }),
+
   registerDirector: publicProcedure
     .input(z.object({ key: z.string() }).strict())
     .query(async ({ ctx, input, path, signal, batchIndex }) => {
+      // WIP: key generation, pairing 'lock in', show paired PeerID in console
+
       // clog
       console.log(`\n\n`);
       console.dir({ input }, { depth: 10 });
       console.log(`\n\n`);
+      return {};
     }),
+
+  otherRoute: anotherRouter,
 });
 
 export type AppRouter = typeof appRouter;
