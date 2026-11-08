@@ -10,15 +10,15 @@ nuartz parses YAML frontmatter using [gray-matter](https://github.com/jonschlink
 
 ```yaml
 ---
-title: My Note                    # Page title (shown in browser tab, sidebar, graph)
-description: A short summary      # Used for SEO meta description
-date: 2024-01-15                  # Publication date (used for sorting)
-tags:                             # List of tags
+title: My Note # Page title (shown in browser tab, sidebar, graph)
+description: A short summary # Used for SEO meta description
+date: 2024-01-15 # Publication date (used for sorting)
+tags: # List of tags
   - feature
   - guide
-draft: true                       # If true, excluded from the site
-published: false                  # Alias for draft (false = excluded)
-toc: false                        # Disable table of contents for this page
+draft: true # If true, excluded from the site
+published: false # Alias for draft (false = excluded)
+toc: false # Disable table of contents for this page
 ---
 ```
 
@@ -28,14 +28,14 @@ The full `Frontmatter` type lives in `packages/nuartz/src/types.ts`:
 
 ```ts
 export interface Frontmatter {
-  title?: string
-  description?: string
-  date?: string
-  tags?: string[]
-  draft?: boolean
-  published?: boolean
-  toc?: boolean
-  [key: string]: unknown   // any extra fields are preserved
+  title?: string;
+  description?: string;
+  date?: string;
+  tags?: string[];
+  draft?: boolean;
+  published?: boolean;
+  toc?: boolean;
+  [key: string]: unknown; // any extra fields are preserved
 }
 ```
 
@@ -57,11 +57,11 @@ content/index.md        → included
 In server components and API routes, frontmatter is available via the `MarkdownFile` object:
 
 ```ts
-const files = await getAllMarkdownFiles(CONTENT_DIR)
-files.forEach(f => {
-  console.log(f.frontmatter.title)
-  console.log(f.frontmatter.tags)
-})
+const files = await getAllMarkdownFiles(CONTENT_DIR);
+files.forEach((f) => {
+  console.log(f.frontmatter.title);
+  console.log(f.frontmatter.tags);
+});
 ```
 
 ## Source

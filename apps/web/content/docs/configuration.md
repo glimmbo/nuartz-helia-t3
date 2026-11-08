@@ -16,13 +16,16 @@ The starter is configured through `apps/web/nuartz.config.ts`. If your editor ha
 ## Full Config Reference
 
 ```typescript title="nuartz.config.ts"
-import path from "node:path"
-import { fileURLToPath } from "node:url"
-import { defineConfig } from "nuartz"
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { defineConfig } from "nuartz";
 
 export default defineConfig({
-  contentDir: path.join(path.dirname(fileURLToPath(import.meta.url)), "content"),
-  homePage: "index",          // "index" | "recent"
+  contentDir: path.join(
+    path.dirname(fileURLToPath(import.meta.url)),
+    "content",
+  ),
+  homePage: "index", // "index" | "recent"
   site: {
     title: "My Garden",
     description: "My personal notes",
@@ -42,7 +45,7 @@ export default defineConfig({
       { label: "GitHub", href: "https://github.com/user/repo", external: true },
     ],
   },
-})
+});
 ```
 
 ## Options
@@ -59,37 +62,37 @@ All features default to `true`. `wikilinks`, `callouts`, `tags`, and `toc` contr
 
 Controls what is shown at `/`:
 
-| Value | Behaviour |
-|-------|-----------|
+| Value               | Behaviour                                                                                          |
+| ------------------- | -------------------------------------------------------------------------------------------------- |
 | `"index"` (default) | Renders `content/index.md` as a normal page. Falls back to recent notes if the file doesn't exist. |
-| `"recent"` | Shows a listing of all notes sorted by `date` frontmatter (most recent first). |
+| `"recent"`          | Shows a listing of all notes sorted by `date` frontmatter (most recent first).                     |
 
 ```typescript
-homePage: "index"   // show content/index.md
-homePage: "recent"  // show recent notes list
+homePage: "index"; // show content/index.md
+homePage: "recent"; // show recent notes list
 ```
 
 ### `site`
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `title` | `string` | Site title, shown in the header and used in RSS/meta tags. |
-| `description` | `string` | Site description for SEO and link previews. |
-| `baseUrl` | `string` | Canonical URL of your deployed site (used for RSS, sitemap, OG tags). |
+| Field         | Type     | Description                                                           |
+| ------------- | -------- | --------------------------------------------------------------------- |
+| `title`       | `string` | Site title, shown in the header and used in RSS/meta tags.            |
+| `description` | `string` | Site description for SEO and link previews.                           |
+| `baseUrl`     | `string` | Canonical URL of your deployed site (used for RSS, sitemap, OG tags). |
 
 ### `features`
 
 Toggle individual features on or off:
 
-| Feature | Default | Description |
-|---------|---------|-------------|
-| `wikilinks` | `true` | [[docs/features/wikilinks\|Wikilink]] syntax support (`[[note]]`). |
-| `callouts` | `true` | [[docs/features/callouts\|Obsidian-style callouts]] (`> [!type]`). |
-| `tags` | `true` | Tag pages and inline `#tag` support. |
-| `backlinks` | `true` | Show which notes link to the current page. |
-| `toc` | `true` | Auto-generated table of contents from headings. |
-| `search` | `true` | Full-text search with Cmd+K / Ctrl+K. |
-| `darkMode` | `true` | Dark/light theme toggle. |
+| Feature     | Default | Description                                                        |
+| ----------- | ------- | ------------------------------------------------------------------ |
+| `wikilinks` | `true`  | [[docs/features/wikilinks\|Wikilink]] syntax support (`[[note]]`). |
+| `callouts`  | `true`  | [[docs/features/callouts\|Obsidian-style callouts]] (`> [!type]`). |
+| `tags`      | `true`  | Tag pages and inline `#tag` support.                               |
+| `backlinks` | `true`  | Show which notes link to the current page.                         |
+| `toc`       | `true`  | Auto-generated table of contents from headings.                    |
+| `search`    | `true`  | Full-text search with Cmd+K / Ctrl+K.                              |
+| `darkMode`  | `true`  | Dark/light theme toggle.                                           |
 
 ### `nav`
 

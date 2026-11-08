@@ -55,7 +55,7 @@ If you omit the title, the callout type name is used as the default title.
 > Use **example** to show sample usage or demonstrations.
 >
 > ```typescript
-> const garden = new Garden({ theme: "dark" })
+> const garden = new Garden({ theme: "dark" });
 > ```
 
 > [!quote] Albert Einstein
@@ -65,6 +65,7 @@ If you omit the title, the callout type name is used as the default title.
 > Use **abstract** (also: summary, tldr) for brief overviews.
 
 > [!todo]
+>
 > - [x] Implement callout parsing
 > - [x] Add styling for all types
 > - [ ] Add collapsible callouts
@@ -81,6 +82,7 @@ Callouts can be nested inside each other:
 ## Using Callouts Effectively
 
 > [!tip] Best Practices
+>
 > - Use callouts sparingly — too many reduces their impact
 > - Pick the right type to match the intent of your message
 > - Keep callout content concise

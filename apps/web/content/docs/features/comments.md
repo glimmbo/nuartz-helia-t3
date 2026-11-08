@@ -10,6 +10,7 @@ Nuartz ships with [Giscus](https://giscus.app/) — a comment system powered by 
 ### 1. Enable GitHub Discussions
 
 Your repository must be **public** and have Discussions enabled:
+
 - Go to your repo → **Settings → Features → Discussions** → check it on.
 
 ### 2. Install the Giscus app
@@ -84,12 +85,12 @@ Giscus requires a GitHub account to comment. If your audience is non-technical o
 
 ## Comparison
 
-| System | Login required | Backend | Nested replies | Reactions | Effort |
-|--------|---------------|---------|---------------|-----------|--------|
-| Giscus | GitHub | No | ✅ | ✅ | Low |
-| Waline | Optional | Yes (Vercel) | ✅ | ✅ | Medium |
-| Remark42 | Optional | Yes (Docker) | ✅ | ✅ | Medium |
-| Cusdis | No | Yes (self-host) | ❌ | ❌ | Medium |
-| Utterances | GitHub | No | ❌ | ❌ | Low |
+| System     | Login required | Backend         | Nested replies | Reactions | Effort |
+| ---------- | -------------- | --------------- | -------------- | --------- | ------ |
+| Giscus     | GitHub         | No              | ✅             | ✅        | Low    |
+| Waline     | Optional       | Yes (Vercel)    | ✅             | ✅        | Medium |
+| Remark42   | Optional       | Yes (Docker)    | ✅             | ✅        | Medium |
+| Cusdis     | No             | Yes (self-host) | ❌             | ❌        | Medium |
+| Utterances | GitHub         | No              | ❌             | ❌        | Low    |
 
 **Recommendation:** For a developer-focused garden, stick with Giscus. For a general-audience blog, Waline is the best balance of features and setup effort.

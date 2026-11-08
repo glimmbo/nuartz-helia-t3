@@ -1,9 +1,12 @@
-import path from "node:path"
-import { fileURLToPath } from "node:url"
-import { defineConfig } from "nuartz"
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { defineConfig } from "nuartz";
 
 export default defineConfig({
-  contentDir: path.join(path.dirname(fileURLToPath(import.meta.url)), "content"),
+  contentDir: path.join(
+    path.dirname(fileURLToPath(import.meta.url)),
+    "content",
+  ),
   site: {
     title: "Nuartz",
     description: "Publish your Obsidian vault as a Next.js website",
@@ -21,7 +24,11 @@ export default defineConfig({
   },
   nav: {
     links: [
-      { label: "GitHub", href: "https://github.com/syshin0116/nuartz", external: true },
+      {
+        label: "GitHub",
+        href: "https://github.com/syshin0116/nuartz",
+        external: true,
+      },
     ],
   },
-})
+});

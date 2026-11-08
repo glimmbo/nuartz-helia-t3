@@ -1,39 +1,47 @@
-export const revalidate = false
+export const revalidate = false;
 
-import Link from "next/link"
-import { notFound } from "next/navigation"
-import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
-import type { Metadata } from "next"
-import tagIndex from "@/.generated/tags.json"
-import config from "@/nuartz.config"
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import type { Metadata } from "next";
+import tagIndex from "@/.generated/tags.json";
+import config from "@/nuartz.config";
 
-const typedTagIndex = tagIndex as Record<string, { slug: string; title: string; description: string | null; date: string | null }[]>
+const typedTagIndex = tagIndex as Record<
+  string,
+  {
+    slug: string;
+    title: string;
+    description: string | null;
+    date: string | null;
+  }[]
+>;
 
 export async function generateStaticParams() {
-  if (!config.features.tags) return []
-  return Object.keys(typedTagIndex).map((tag) => ({ tag }))
+  if (!config.features.tags) return [];
+  return Object.keys(typedTagIndex).map((tag) => ({ tag }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ tag: string }>
+  params: Promise<{ tag: string }>;
 }): Promise<Metadata> {
-  const { tag } = await params
-  return { title: `#${tag}` }
+  const { tag } = await params;
+  return { title: `#${tag}` };
 }
 
 export default async function TagPage({
   params,
 }: {
-  params: Promise<{ tag: string }>
+  params: Promise<{ tag: string }>;
 }) {
-  if (!config.features.tags) notFound()
-  const { tag } = await params
-  const tagged = typedTagIndex[tag]
+  if (!config.features.tags) notFound();
+  const { tag } = await params;
+  const tagged = typedTagIndex[tag];
 
-  if (!tagged?.length) notFound()
+  if (!tagged?.length) notFound();
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-10">
@@ -69,12 +77,14 @@ export default async function TagPage({
                 )}
               </div>
               {file.description && (
-                <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{file.description}</p>
+                <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
+                  {file.description}
+                </p>
               )}
             </div>
           </Link>
         ))}
       </div>
     </div>
-  )
+  );
 }

@@ -1,17 +1,17 @@
-import Link from "next/link"
-import { cn } from "@/lib/utils"
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 export interface FileNode {
-  name: string
-  path: string
-  type: "file" | "folder"
-  children?: FileNode[]
+  name: string;
+  path: string;
+  type: "file" | "folder";
+  children?: FileNode[];
 }
 
 interface SidebarProps {
-  tree: FileNode[]
-  currentPath?: string
-  className?: string
+  tree: FileNode[];
+  currentPath?: string;
+  className?: string;
 }
 
 export function Sidebar({ tree, currentPath, className }: SidebarProps) {
@@ -19,7 +19,7 @@ export function Sidebar({ tree, currentPath, className }: SidebarProps) {
     <aside
       className={cn(
         "hidden w-[var(--sidebar-width)] shrink-0 border-r lg:block",
-        className
+        className,
       )}
     >
       <div className="sticky top-14 h-[calc(100vh-3.5rem)] overflow-y-auto py-4 px-2">
@@ -28,7 +28,7 @@ export function Sidebar({ tree, currentPath, className }: SidebarProps) {
         </nav>
       </div>
     </aside>
-  )
+  );
 }
 
 function FileTree({
@@ -36,9 +36,9 @@ function FileTree({
   currentPath,
   depth,
 }: {
-  nodes: FileNode[]
-  currentPath?: string
-  depth: number
+  nodes: FileNode[];
+  currentPath?: string;
+  depth: number;
 }) {
   return (
     <ul className="space-y-0.5">
@@ -51,7 +51,7 @@ function FileTree({
         />
       ))}
     </ul>
-  )
+  );
 }
 
 function FileTreeNode({
@@ -59,12 +59,12 @@ function FileTreeNode({
   currentPath,
   depth,
 }: {
-  node: FileNode
-  currentPath?: string
-  depth: number
+  node: FileNode;
+  currentPath?: string;
+  depth: number;
 }) {
-  const isActive = currentPath === node.path
-  const indent = depth * 12
+  const isActive = currentPath === node.path;
+  const indent = depth * 12;
 
   if (node.type === "folder") {
     return (
@@ -77,10 +77,14 @@ function FileTreeNode({
           <span className="font-medium">{node.name}</span>
         </div>
         {node.children && (
-          <FileTree nodes={node.children} currentPath={currentPath} depth={depth + 1} />
+          <FileTree
+            nodes={node.children}
+            currentPath={currentPath}
+            depth={depth + 1}
+          />
         )}
       </li>
-    )
+    );
   }
 
   return (
@@ -91,12 +95,12 @@ function FileTreeNode({
           "flex items-center rounded px-2 py-1 text-sm transition-colors hover:bg-muted",
           isActive
             ? "bg-muted font-medium text-foreground"
-            : "text-muted-foreground hover:text-foreground"
+            : "text-muted-foreground hover:text-foreground",
         )}
         style={{ paddingLeft: `${8 + indent}px` }}
       >
         {node.name}
       </Link>
     </li>
-  )
+  );
 }

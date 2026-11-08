@@ -31,14 +31,14 @@ aliases:
 ---
 ```
 
-| Field | Description |
-|-------|-------------|
-| `title` | Page title. Falls back to the filename if omitted. |
-| `date` | Publish date in `YYYY-MM-DD` format. |
-| `tags` | List of tags for categorization. |
-| `description` | Used for link previews and meta tags. |
-| `draft` | Set to `true` to hide the page from the published site. |
-| `aliases` | Alternate names that wikilinks can resolve to. |
+| Field         | Description                                             |
+| ------------- | ------------------------------------------------------- |
+| `title`       | Page title. Falls back to the filename if omitted.      |
+| `date`        | Publish date in `YYYY-MM-DD` format.                    |
+| `tags`        | List of tags for categorization.                        |
+| `description` | Used for link previews and meta tags.                   |
+| `draft`       | Set to `true` to hide the page from the published site. |
+| `aliases`     | Alternate names that wikilinks can resolve to.          |
 
 ## Wikilinks
 
@@ -55,11 +55,11 @@ See [[docs/features/wikilinks|Wikilinks]] for the full syntax reference.
 Use Obsidian-style callout blocks to highlight information:
 
 > [!note] This is a note
-> Callouts support **bold**, *italic*, `code`, and [[docs/features/wikilinks|wikilinks]] inside them.
+> Callouts support **bold**, _italic_, `code`, and [[docs/features/wikilinks|wikilinks]] inside them.
 
 ```markdown
 > [!note] This is a note
-> Callouts support **bold**, *italic*, `code`, and [[wikilinks]] inside them.
+> Callouts support **bold**, _italic_, `code`, and [[wikilinks]] inside them.
 ```
 
 See [[docs/features/callouts|Callouts]] for all supported types.
@@ -74,7 +74,7 @@ Fenced code blocks with language identifiers get [[docs/features/syntax-highligh
 
 ```typescript
 function greet(name: string): string {
-  return `Hello, ${name}!`
+  return `Hello, ${name}!`;
 }
 ```
 
@@ -117,5 +117,6 @@ Standard Markdown image syntax also works:
 ```
 
 > [!tip] What's Next?
+>
 > - [[docs/configuration|Configure your garden]]
 > - [[docs/features/graph-view|Explore the graph view]]

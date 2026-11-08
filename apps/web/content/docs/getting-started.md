@@ -9,6 +9,7 @@ description: How to set up nuartz and start publishing your digital garden.
 ---
 
 > [!info] Prerequisites
+>
 > - [Node.js](https://nodejs.org/) v18 or later
 > - [bun](https://bun.sh/) package manager
 
@@ -78,6 +79,7 @@ Nuartz can be deployed two ways:
 See [[docs/hosting|Hosting]] for step-by-step instructions and a full comparison of what each mode supports.
 
 > [!tip] Next Steps
+>
 > - [[docs/authoring-content|Learn how to write content]]
 > - [[docs/features/wikilinks|Link notes with wikilinks]]
 > - [[docs/features/callouts|Use callouts to highlight information]]

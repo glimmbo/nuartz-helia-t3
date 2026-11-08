@@ -16,13 +16,13 @@ Wrap code in triple backticks with a language identifier:
 
 ```typescript
 interface Note {
-  title: string
-  tags: string[]
-  content: string
+  title: string;
+  tags: string[];
+  content: string;
 }
 
 function renderNote(note: Note): string {
-  return `<h1>${note.title}</h1>`
+  return `<h1>${note.title}</h1>`;
 }
 ```
 
@@ -76,11 +76,11 @@ export default defineConfig({ ... })
 ````
 
 ```ts title="nuartz.config.ts"
-import { defineConfig } from "nuartz"
+import { defineConfig } from "nuartz";
 
 export default defineConfig({
   site: { title: "My Garden" },
-})
+});
 ```
 
 ## Line Highlighting
@@ -89,17 +89,17 @@ Highlight specific lines with `{line-numbers}`:
 
 ````markdown
 ```ts {2-3}
-const a = 1
-const b = 2  // highlighted
-const c = 3  // highlighted
+const a = 1;
+const b = 2; // highlighted
+const c = 3; // highlighted
 ```
 ````
 
 ```ts {2-3}
 function setup() {
-  const config = loadConfig()   // highlighted
-  const content = readContent() // highlighted
-  return { config, content }
+  const config = loadConfig(); // highlighted
+  const content = readContent(); // highlighted
+  return { config, content };
 }
 ```
 

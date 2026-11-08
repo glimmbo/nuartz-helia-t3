@@ -1,4 +1,4 @@
-import type { NextConfig } from "next"
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   experimental: {
@@ -14,7 +14,9 @@ const nextConfig: NextConfig = {
     "@beoe/rehype-code-hook-img",
     "@hpcc-js/wasm",
     "@node-rs/xxhash",
+    "node-datachannel",
+    "@libp2p/webrtc",
   ],
-}
+};
 
-export default nextConfig
+export default nextConfig;

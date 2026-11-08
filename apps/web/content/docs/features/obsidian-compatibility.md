@@ -92,6 +92,7 @@ nuartz reads the same frontmatter fields as Obsidian (`title`, `tags`, `aliases`
 ## Tips for a smooth migration
 
 > [!tip] Moving an existing vault
+>
 > 1. Copy your vault's Markdown files into `content/`.
 > 2. Run `bun dev` and check the browser console for any broken wikilinks.
 > 3. Pages with `draft: true` are excluded from listings but still accessible by URL in dev mode.

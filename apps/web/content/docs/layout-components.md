@@ -31,26 +31,26 @@ The root layout (`apps/web/app/layout.tsx`) defines the page shell:
 
 ### Layout components
 
-| Component | File | Purpose |
-|-----------|------|---------|
-| Header | `components/layout/header.tsx` | Top navigation bar |
-| NavSidebar | `components/layout/nav-sidebar.tsx` | File tree sidebar |
-| MobileNav | `components/layout/mobile-nav.tsx` | Mobile slide-out navigation |
-| LayoutShell | `components/layout/layout-shell.tsx` | Page content wrapper |
+| Component   | File                                 | Purpose                     |
+| ----------- | ------------------------------------ | --------------------------- |
+| Header      | `components/layout/header.tsx`       | Top navigation bar          |
+| NavSidebar  | `components/layout/nav-sidebar.tsx`  | File tree sidebar           |
+| MobileNav   | `components/layout/mobile-nav.tsx`   | Mobile slide-out navigation |
+| LayoutShell | `components/layout/layout-shell.tsx` | Page content wrapper        |
 
 ### Content components
 
-| Component | File | Purpose |
-|-----------|------|---------|
-| TableOfContents | `components/toc.tsx` | Right-side heading navigation |
-| GraphView | `components/graph-view.tsx` | Interactive note graph |
-| Backlinks | `components/backlinks.tsx` | Pages linking to current page |
-| Breadcrumb | `components/breadcrumb.tsx` | Path breadcrumbs |
-| FileExplorer | `components/file-explorer.tsx` | Folder tree browser |
-| CommandPalette | `components/command-palette.tsx` | `Cmd+K` search |
-| HeadingAnchors | `components/heading-anchors.tsx` | Clickable heading links |
-| MermaidRenderer | `components/mermaid-renderer.tsx` | Mermaid diagram rendering |
-| ThemeToggle | `components/theme-toggle.tsx` | Light/dark mode switch |
+| Component       | File                              | Purpose                       |
+| --------------- | --------------------------------- | ----------------------------- |
+| TableOfContents | `components/toc.tsx`              | Right-side heading navigation |
+| GraphView       | `components/graph-view.tsx`       | Interactive note graph        |
+| Backlinks       | `components/backlinks.tsx`        | Pages linking to current page |
+| Breadcrumb      | `components/breadcrumb.tsx`       | Path breadcrumbs              |
+| FileExplorer    | `components/file-explorer.tsx`    | Folder tree browser           |
+| CommandPalette  | `components/command-palette.tsx`  | `Cmd+K` search                |
+| HeadingAnchors  | `components/heading-anchors.tsx`  | Clickable heading links       |
+| MermaidRenderer | `components/mermaid-renderer.tsx` | Mermaid diagram rendering     |
+| ThemeToggle     | `components/theme-toggle.tsx`     | Light/dark mode switch        |
 
 ### UI primitives
 

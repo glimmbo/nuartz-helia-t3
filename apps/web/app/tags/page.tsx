@@ -1,29 +1,31 @@
-export const revalidate = false
+export const revalidate = false;
 
-import Link from "next/link"
-import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
-import type { Metadata } from "next"
-import { notFound } from "next/navigation"
-import tagIndex from "@/.generated/tags.json"
-import config from "@/nuartz.config"
+import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import tagIndex from "@/.generated/tags.json";
+import config from "@/nuartz.config";
 
-export const metadata: Metadata = { title: "Tags" }
+export const metadata: Metadata = { title: "Tags" };
 
 export default async function TagsPage() {
-  if (!config.features.tags) notFound()
-  const tagMap = new Map<string, number>()
+  if (!config.features.tags) notFound();
+  const tagMap = new Map<string, number>();
   for (const [tag, files] of Object.entries(tagIndex)) {
-    tagMap.set(tag, (files as unknown[]).length)
+    tagMap.set(tag, (files as unknown[]).length);
   }
 
-  const sorted = [...tagMap.entries()].sort((a, b) => b[1] - a[1])
+  const sorted = [...tagMap.entries()].sort((a, b) => b[1] - a[1]);
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-10">
       <div className="mb-6">
         <h1 className="text-2xl font-semibold tracking-tight">Tags</h1>
-        <p className="mt-1 text-sm text-muted-foreground">{sorted.length} tags</p>
+        <p className="mt-1 text-sm text-muted-foreground">
+          {sorted.length} tags
+        </p>
       </div>
 
       <Separator className="mb-6" />
@@ -44,5 +46,5 @@ export default async function TagsPage() {
         ))}
       </div>
     </div>
-  )
+  );
 }

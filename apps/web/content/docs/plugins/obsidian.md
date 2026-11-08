@@ -22,6 +22,7 @@ a.wikilink.broken {
 ```
 
 Resolution rules:
+
 - Exact slug match: `[[notes/foo]]` → `notes/foo`
 - Suffix match: `[[foo]]` matches any slug ending in `/foo`
 - Normalized: spaces → hyphens, lowercased
@@ -58,13 +59,13 @@ See [[features/callouts]] for styling details.
 
 These features are enabled by default in `renderMarkdown()`. They are implemented as individual remark plugins in `packages/nuartz/src/plugins/`:
 
-| File | Feature |
-|------|---------|
-| `wikilink.ts` | Wikilinks, broken link detection |
-| `callout.ts` | Callout blocks |
-| `highlight.ts` | `==highlight==` syntax |
-| `tag.ts` | Inline `#tag` extraction |
-| `comment.ts` | `%% comment %%` removal |
+| File           | Feature                          |
+| -------------- | -------------------------------- |
+| `wikilink.ts`  | Wikilinks, broken link detection |
+| `callout.ts`   | Callout blocks                   |
+| `highlight.ts` | `==highlight==` syntax           |
+| `tag.ts`       | Inline `#tag` extraction         |
+| `comment.ts`   | `%% comment %%` removal          |
 
 ## Source
 

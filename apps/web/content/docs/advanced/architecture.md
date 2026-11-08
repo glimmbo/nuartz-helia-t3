@@ -36,17 +36,17 @@ Defined in `packages/nuartz/src/types.ts`:
 
 ```ts
 interface RenderResult {
-  html: string
-  frontmatter: Frontmatter
-  toc: TocEntry[]
-  links: string[]  // outgoing wikilinks
-  tags: string[]   // inline #tags
+  html: string;
+  frontmatter: Frontmatter;
+  toc: TocEntry[];
+  links: string[]; // outgoing wikilinks
+  tags: string[]; // inline #tags
 }
 
 interface RenderOptions {
-  baseUrl?: string
-  resolveLink?: (target: string) => string
-  stripDrafts?: boolean
+  baseUrl?: string;
+  resolveLink?: (target: string) => string;
+  stripDrafts?: boolean;
 }
 ```
 
